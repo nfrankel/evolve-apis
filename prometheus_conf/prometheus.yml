@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 5s
+  external_labels:
+    stack: "apisix"
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+  - job_name: "apisix"
+    metrics_path: "/apisix/prometheus/metrics"
+    static_configs:
+      - targets: ["apisix:9091"]
+  - job_name: "oldapi"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["oldapi:8081"]
+  - job_name: "newapi"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["newapi:8082"]
