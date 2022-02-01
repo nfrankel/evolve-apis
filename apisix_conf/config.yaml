@@ -1,0 +1,36 @@
+apisix:
+  node_listen: 9080
+  enable_ipv6: false
+  allow_admin:
+    - 0.0.0.0/0
+  admin_key:
+    - name: "admin"
+      key: edd1c9f034335f136f87ad84b625c8f1
+      role: admin
+    - name: "viewer"
+      key: 4054f7cf07e344346cd3f287985e76a2
+      role: viewer
+  enable_control: true
+  control:
+    ip: "0.0.0.0"
+    port: 9092
+  extra_lua_path: "/opt/?.lua"
+nginx_config:
+  http:
+    custom_lua_shared_dict:
+      plugin-unauth-limit: 100m
+etcd:
+  host:
+    - "http://etcd:2397"
+  prefix: "/apisix"
+  timeout: 30
+plugins:
+  - key-auth                       # priority: 2500
+  - proxy-rewrite                  # priority: 1008
+  - redirect                       # priority: 900
+  - prometheus                     # priority: 500
+plugin_attr:
+  prometheus:
+    export_addr:
+      ip: "0.0.0.0"
+      port: 9091
