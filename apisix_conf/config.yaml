@@ -29,6 +29,7 @@ plugins:
   - proxy-rewrite                  # priority: 1008
   - redirect                       # priority: 900
   - prometheus                     # priority: 500
+  - unauth-limit                   # priority: 100
 plugin_attr:
   prometheus:
     export_addr:
