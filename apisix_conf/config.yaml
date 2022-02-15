@@ -13,6 +13,7 @@ deployment:
       - "http://etcd:2397"
 plugins:
   - key-auth                       # priority: 2500
+  - proxy-mirror                   # priority: 1010
   - proxy-rewrite                  # priority: 1008
   - redirect                       # priority: 900
   - prometheus                     # priority: 500
