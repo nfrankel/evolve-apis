@@ -1,6 +1,6 @@
 services:
   apisix:
-    image: apache/apisix:3.9.0-debian
+    image: apache/apisix:3.9.1-debian
     volumes:
       - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
       - ./unauth-limit-plugin/src:/opt/apisix/plugins:ro
@@ -26,7 +26,7 @@ services:
     depends_on:
       - apisix
   prometheus:
-    image: prom/prometheus:v2.51.1
+    image: prom/prometheus:v2.51.2
     volumes:
       - ./prometheus_conf/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
@@ -34,7 +34,7 @@ services:
     depends_on:
       - apisix
   grafana:
-    image: grafana/grafana:10.4.1
+    image: grafana/grafana:10.4.2
     volumes:
       - ./grafana_conf/provisioning:/etc/grafana/provisioning
       - ./grafana_conf/dashboards:/var/lib/grafana/dashboards
