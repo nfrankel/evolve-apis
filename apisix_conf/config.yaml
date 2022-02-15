@@ -30,6 +30,7 @@ plugins:
   - proxy-rewrite                  # priority: 1008
   - traffic-split                  # priority: 966
   - redirect                       # priority: 900
+  - response-rewrite               # priority: 899
   - prometheus                     # priority: 500
   - unauth-limit                   # priority: 100
 plugin_attr:
