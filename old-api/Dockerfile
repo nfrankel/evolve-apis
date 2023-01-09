@@ -1,4 +1,4 @@
-FROM openjdk:11-slim-buster as build
+FROM openjdk:17.0.2-slim-buster as build
 
 COPY .mvn .mvn
 COPY mvnw .
