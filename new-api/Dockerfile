@@ -1,4 +1,4 @@
-FROM openjdk:11-slim-buster as build
+FROM openjdk:11.0.16-slim-buster as build
 
 COPY .mvn .mvn
 COPY mvnw .
@@ -7,7 +7,7 @@ COPY src src
 
 RUN ./mvnw -B package
 
-FROM openjdk:11-jre-slim-buster
+FROM openjdk:11.0.16-jre-slim-buster
 
 COPY --from=build target/new-api-2.0.0.jar .
 
