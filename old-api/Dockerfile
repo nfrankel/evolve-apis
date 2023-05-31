@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine as build
+FROM eclipse-temurin:17.0.7_7-jdk-alpine as build
 
 COPY .mvn .mvn
 COPY mvnw .
@@ -7,7 +7,7 @@ COPY src src
 
 RUN ./mvnw -B package
 
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17.0.7_7-jre-alpine
 
 COPY --from=build target/old-api-1.0.0.jar .
 
