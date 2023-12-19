@@ -36,7 +36,7 @@ services:
     depends_on:
       - apisix
   grafana:
-    image: grafana/grafana:10.2.2
+    image: grafana/grafana:10.2.3
     volumes:
       - ./grafana_conf/provisioning:/etc/grafana/provisioning
       - ./grafana_conf/dashboards:/var/lib/grafana/dashboards
