@@ -25,7 +25,7 @@ services:
     depends_on:
       - apisix
   prometheus:
-    image: prom/prometheus:v2.53.1
+    image: prom/prometheus:v2.54.1
     volumes:
       - ./prometheus_conf/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
