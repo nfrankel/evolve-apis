@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jdk-jammy AS build
+FROM eclipse-temurin:21.0.4_7-jdk-jammy AS build
 
 COPY .mvn .mvn
 COPY mvnw .
@@ -7,7 +7,7 @@ COPY src src
 
 RUN ./mvnw -B package
 
-FROM eclipse-temurin:21-jre-jammy
+FROM eclipse-temurin:21.0.4_7-jre-jammy
 
 COPY --from=build target/new-api-2.0.0.jar .
 
