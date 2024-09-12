@@ -10,7 +10,7 @@ services:
       - etcd
     restart: on-failure
   etcd:
-    image: bitnami/etcd:3.5.15
+    image: bitnami/etcd:3.5.16
     environment:
       ETCD_ENABLE_V2: true
       ALLOW_NONE_AUTHENTICATION: yes
